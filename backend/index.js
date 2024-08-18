@@ -1,5 +1,5 @@
 const express = require('express');
-const { decryptRequest, encryptResponse, setServerConfig, server } = require('encryption-npm-package');
+const { decryptRequest, encryptResponse, setServerConfig, server } = require('safexchange');
 const cors = require('cors')
 
 
@@ -7,7 +7,7 @@ const app = express();
 app.use(cors())
 
 let config = {
-    jwtSecret: 'qwerty',
+    jwtSecret: 'qwertytresdcvbnjuytrdfgoiuytrewsxcvbn',
     server: {
         requestLogs: true,
         responseLogs: true,
@@ -23,11 +23,11 @@ app.use(decryptRequest)
 app.use(encryptResponse)
 
 app.post('/test', (req, res) => {
-    if (req.body) {
+    try {
+        console.log(req.body);
         res.json({ message: 'received successfully' });
-    }
-    else {
-        res.status(500).json({ message: 'Something Went Wrong' });
+    } catch (error) {
+        console.log(error);
     }
 })
 
