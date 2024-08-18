@@ -1,15 +1,14 @@
-import { encryptApi, setClientConfig } from 'encryption-npm-package';
+import { encryptApi, setClientConfig, api } from 'safexchange';
 import './App.css'
 
 function App() {
 
   let config = {
-    jwtSecret: 'qwertyuiopasdfghjklzxcvbnmsdfghj',
+    jwtSecret: 'qwertytresdcvbnjuytrdfgoiuytrewsxcvbn',
     client: {
       baseUrl: 'http://localhost:5000',
       requestLogs: true,
       responseLogs: true,
-      withCredentials: true,
     },
   };
 
@@ -18,19 +17,19 @@ function App() {
   setClientConfig(config);
 
   const fetchNormalData = async () => {
-    const response = await encryptApi.post('http://localhost:5000/test', { count: 1 })
+    const response = await api.post('http://localhost:5000/test', { count: 1 })
     console.log(response.data);
   }
 
   const fetchEncryptData = async () => {
-    const response = await encryptApi.post('http://localhost:5000/test', { count: 1 })
+    const response = await encryptApi.post('http://localhost:5000/test', { data: 'confidential datas', receiver: 'ram'  })
     console.log(response.data);
   }
 
   return (
     <>
-      <button onClick={fetchEncryptData}>test start</button>
-      <button onClick={fetchEncryptData}>test start</button>
+      <button onClick={fetchEncryptData} style={{backgroundColor:'blue',color: 'white'}}>start  data transfer with Encryption</button><br /><br />
+      <button onClick={fetchNormalData} style={{backgroundColor:'blue',color: 'white'}}>start data transfer Normally</button>
     </>
   )
 }

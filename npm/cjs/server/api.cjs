@@ -3,6 +3,8 @@ const { getServerConfig } = require('./config.cjs');
 
 // Middleware to decrypt request data
 const decryptRequest = (req, res, next) => {
+    console.log('test');
+
     if (req.is('application/octet-stream')) {
         let data = '';
         req.setEncoding('utf8');
@@ -36,7 +38,7 @@ const decryptRequest = (req, res, next) => {
 // Middleware to encrypt response data
 const encryptResponse = (req, res, next) => {
     const originalSend = res.send;
-
+    
     res.send = async function (body) {
         if (!req.enc && req.is('application/octet-stream')) {
             if (getServerConfig().server.responseLogs) {
