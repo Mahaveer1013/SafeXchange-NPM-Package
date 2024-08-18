@@ -13,8 +13,8 @@ function App() {
     },
   };
 
-  
 
+  
   setClientConfig(config);
 
   const fetchData = async () => {
@@ -30,3 +30,4 @@ function App() {
 }
 
 export default App
+
