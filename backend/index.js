@@ -7,7 +7,7 @@ const app = express();
 app.use(cors())
 
 let config = {
-    jwtSecret: 'qwerty',
+    jwtSecret: 'qwertyuiopasdfghjklzxcvbnmsdfghj',
     server: {
         requestLogs: true,
         responseLogs: true,

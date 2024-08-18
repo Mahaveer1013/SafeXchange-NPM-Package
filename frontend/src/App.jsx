@@ -4,7 +4,7 @@ import './App.css'
 function App() {
 
   let config = {
-    jwtSecret: 'qwerty',
+    jwtSecret: 'qwertyuiopasdfghjklzxcvbnmsdfghj',
     client: {
       baseUrl: 'http://localhost:5000',
       requestLogs: true,
@@ -14,17 +14,23 @@ function App() {
   };
 
 
-  
+
   setClientConfig(config);
 
-  const fetchData = async () => {
+  const fetchNormalData = async () => {
+    const response = await encryptApi.post('http://localhost:5000/test', { count: 1 })
+    console.log(response.data);
+  }
+
+  const fetchEncryptData = async () => {
     const response = await encryptApi.post('http://localhost:5000/test', { count: 1 })
     console.log(response.data);
   }
 
   return (
     <>
-      <button onClick={fetchData}>test start</button>
+      <button onClick={fetchEncryptData}>test start</button>
+      <button onClick={fetchEncryptData}>test start</button>
     </>
   )
 }
