@@ -3,8 +3,8 @@ const CryptoJS = require('crypto-js');
 const { getClientConfig } = require('./config.cjs');
 
 const encryptApi = axios.create({
-    baseURL: getClientConfig().client.baseUrl,
-    withCredentials: getClientConfig().client.withCredentials,
+    baseURL: '',
+    withCredentials: false,
 });
 
 const encryptValue = (value) => {

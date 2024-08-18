@@ -3,8 +3,6 @@ import { getServerConfig } from './config';
 
 // Middleware to decrypt request data
 const decryptRequest = (req, res, next) => {
-    console.log('test');
-    
     if (req.is('application/octet-stream')) {
         let data = '';
         req.setEncoding('utf8');

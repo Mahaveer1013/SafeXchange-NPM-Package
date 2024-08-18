@@ -2,7 +2,6 @@
 let config = {
     jwtSecret: '',
     client: {
-        baseUrl: '',
         requestLogs: false,
         responseLogs: false,
         withCredentials: false,

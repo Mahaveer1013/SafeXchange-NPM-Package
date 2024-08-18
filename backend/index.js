@@ -1,5 +1,5 @@
 const express = require('express');
-const { decryptRequest, encryptResponse, setServerConfig, server } = require('safexchange');
+const { decryptRequest, encryptResponse, setServerConfig, } = require('safexchange');
 const cors = require('cors')
 
 
@@ -15,9 +15,6 @@ let config = {
 };
 
 setServerConfig(config);
-
-console.log(server);
-
 
 app.use(decryptRequest)
 app.use(encryptResponse)
